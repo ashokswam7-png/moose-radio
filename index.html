@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moose Radio — Sidhu Moose Wala Tribute</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#161414;
+    --paper:#FBF4E8;
+    --red:#C81E2C;
+    --cream:#EDE3CE;
+    --denim:#3E5C82;
+    --gold:#D6A039;
+    --max-w:1160px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Space Grotesk', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:86px;
+  }
+  h1,h2,h3,.display{
+    font-family:'Bricolage Grotesque', sans-serif;
+    margin:0;
+    line-height:0.97;
+  }
+  a{color:inherit;}
+  button{font-family:inherit;}
+  .wrap{max-width:var(--max-w);margin:0 auto;padding:0 28px;}
+  a:focus-visible, button:focus-visible, input:focus-visible{
+    outline:3px solid var(--denim);
+    outline-offset:2px;
+  }
+  @media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important;} }
+
+  nav{position:sticky; top:0; z-index:50; background:var(--paper); border-bottom:3px solid var(--ink);}
+  .nav-inner{max-width:var(--max-w); margin:0 auto; padding:18px 28px; display:flex; align-items:center; justify-content:space-between;}
+  .logo{font-family:'Bricolage Grotesque', sans-serif; font-weight:800; font-size:22px; letter-spacing:-0.4px;}
+  .logo span{color:var(--red);}
+  .nav-links{display:flex; gap:26px; list-style:none; margin:0; padding:0; font-weight:500; font-size:15px;}
+  .nav-links a{text-decoration:none; position:relative;}
+  .nav-links a:after{content:''; position:absolute; left:0; bottom:-4px; height:3px; width:0; background:var(--red); transition:width .25s ease;}
+  .nav-links a:hover:after{width:100%;}
+
+  .hero{position:relative; padding:70px 0 56px; overflow:hidden;
+    background: radial-gradient(circle at 88% 8%, var(--gold) 0%, transparent 36%), var(--paper);
+  }
+  .hero-grid{display:grid; grid-template-columns:1.25fr 0.9fr; gap:40px; align-items:center;}
+  .years{font-size:16px; font-weight:700; color:var(--red); letter-spacing:.3px; margin-bottom:12px;
+    opacity:0; transform:translateY(16px); animation:riseIn .7s cubic-bezier(.2,.8,.2,1) forwards;}
+  .hero h1{font-size:clamp(46px, 7.6vw, 92px); font-weight:800; letter-spacing:-1.5px;
+    opacity:0; transform:translateY(24px); animation:riseIn .8s cubic-bezier(.2,.8,.2,1) .1s forwards;}
+  @keyframes riseIn{ to{opacity:1; transform:translateY(0);} }
+  .hero p.tag{margin-top:20px; font-size:18px; max-width:44ch; line-height:1.6;
+    opacity:0; animation:riseIn .8s cubic-bezier(.2,.8,.2,1) .25s forwards;}
+  .hero-cta{margin-top:30px; display:flex; gap:16px; flex-wrap:wrap;
+    opacity:0; animation:riseIn .8s cubic-bezier(.2,.8,.2,1) .4s forwards;}
+  .btn{display:inline-block; padding:14px 26px; border-radius:999px; font-weight:700; font-size:15px;
+    text-decoration:none; border:3px solid var(--ink); transition:transform .18s ease, box-shadow .18s ease; cursor:pointer; background:transparent;}
+  .btn-solid{background:var(--ink); color:var(--paper);}
+  .btn-solid:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--red);}
+  .btn-outline:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--denim);}
+
+  .hero-art{position:relative; aspect-ratio:0.9/1; border:4px solid var(--ink); border-radius:24px; overflow:hidden;
+    background:linear-gradient(180deg, var(--denim) 0%, var(--denim) 58%, var(--cream) 58%, var(--cream) 100%);
+  }
+  .turban{position:absolute; top:8%; left:50%; transform:translateX(-50%); width:56%; height:34%;
+    background:var(--ink); border-radius:50% 50% 42% 42%;}
+  .scarf{position:absolute; top:30%; left:12%; width:76%; height:58%;
+    background:repeating-linear-gradient(115deg, var(--red) 0 22px, var(--cream) 22px 40px, var(--ink) 40px 46px);
+    border-radius:10px; border:3px solid var(--ink);}
+  .badge{position:absolute; bottom:14px; right:14px; background:var(--gold); border:3px solid var(--ink);
+    border-radius:999px; padding:6px 14px; font-weight:700; font-size:13px;}
+
+  section{padding:92px 0;}
+  .kicker{font-weight:700; font-size:14px; color:var(--red); margin-bottom:10px;}
+  .section-head{max-width:62ch; margin-bottom:36px;}
+  .section-head h2{font-size:clamp(32px,4.3vw,48px); letter-spacing:-1px;}
+
+  .about{background:var(--ink); color:var(--paper);}
+  .about .kicker{color:var(--gold);}
+  .about-grid{display:grid; grid-template-columns:1.2fr 0.8fr; gap:56px; align-items:start;}
+  .about p{font-size:17px; line-height:1.75; opacity:.92;}
+  .about p + p{margin-top:16px;}
+  .stat-row{display:flex; gap:32px; margin-top:32px; flex-wrap:wrap;}
+  .stat b{display:block; font-family:'Bricolage Grotesque',sans-serif; font-size:36px; color:var(--red);}
+  .stat span{font-size:13px; opacity:.75;}
+  .fact-list{display:flex; flex-direction:column; gap:16px;}
+  .fact{padding:16px 18px; border:2px solid rgba(251,244,232,.25); border-radius:14px;}
+  .fact b{display:block; font-size:13px; color:var(--gold); margin-bottom:4px; font-weight:700;}
+  .fact span{font-size:15px;}
+
+  .music{background:var(--paper);}
+  .music-toolbar{display:flex; gap:14px; align-items:center; margin-bottom:8px; flex-wrap:wrap;}
+  .search-box{flex:1; min-width:220px; display:flex; align-items:center; gap:10px;
+    border:3px solid var(--ink); border-radius:999px; padding:10px 20px; background:var(--cream);}
+  .search-box svg{flex:none; opacity:.6;}
+  .search-box input{border:none; background:transparent; outline:none; font-family:inherit; font-size:15px; width:100%; color:var(--ink);}
+  .song-count{font-size:14px; opacity:.65; white-space:nowrap;}
+  .track-list{display:flex; flex-direction:column; border-top:3px solid var(--ink); margin-top:20px; max-height:640px; overflow-y:auto;}
+  .track{display:grid; grid-template-columns:40px 1fr auto; gap:16px; align-items:center; padding:16px 6px;
+    border-bottom:2px solid rgba(22,20,20,.15); cursor:pointer; background:transparent; text-align:left; width:100%; border-left:none; border-right:none; border-top:none; color:inherit;}
+  .track:hover{background:var(--cream);}
+  .track.active{background:var(--red); color:var(--paper); border-bottom-color:var(--red);}
+  .track .idx{font-family:'Bricolage Grotesque',sans-serif; font-size:15px; opacity:.55; text-align:center;}
+  .track.active .idx{opacity:.85;}
+  .track h3{font-size:17px; font-weight:700; margin:0;}
+  .track .meta{font-size:13px; opacity:.6; margin-top:2px;}
+  .track.active .meta{opacity:.85;}
+  .year-pill{font-size:12px; font-weight:700; border:2px solid currentColor; border-radius:999px; padding:4px 12px; white-space:nowrap;}
+  .no-results{padding:28px 6px; opacity:.6; font-size:15px;}
+
+  .player-bar{position:fixed; left:0; right:0; bottom:0; z-index:100; background:var(--ink); color:var(--paper);
+    border-top:3px solid var(--red); padding:12px 20px;}
+  .player-inner{max-width:var(--max-w); margin:0 auto; display:flex; align-items:center; gap:18px; flex-wrap:wrap;}
+  .now-playing{min-width:0; flex:1 1 200px;}
+  .now-playing b{display:block; font-size:14px; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .now-playing span{font-size:12px; opacity:.65;}
+  .transport{display:flex; align-items:center; gap:10px;}
+  .ctrl-btn{width:38px; height:38px; border-radius:50%; border:2px solid var(--paper); background:transparent; color:var(--paper);
+    display:flex; align-items:center; justify-content:center; cursor:pointer; transition:transform .15s ease, background .15s ease;}
+  .ctrl-btn:hover{transform:scale(1.08); background:rgba(251,244,232,.12);}
+  .ctrl-btn.play{width:44px; height:44px; background:var(--red); border-color:var(--red);}
+  .ctrl-btn.on{background:var(--gold); border-color:var(--gold); color:var(--ink);}
+  .vol-group{display:flex; align-items:center; gap:8px;}
+  .vol-group input[type="range"]{width:90px; accent-color:var(--red);}
+  .yt-hidden{position:absolute; width:0; height:0; overflow:hidden;}
+
+  .awards{background:var(--paper);}
+  .award-row{display:grid; grid-template-columns:150px 1fr; gap:24px; align-items:start; padding:20px 0; border-bottom:2px solid rgba(22,20,20,.15);}
+  .award-row:first-of-type{border-top:2px solid rgba(22,20,20,.15);}
+  .award-row b{font-family:'Bricolage Grotesque',sans-serif; font-size:20px;}
+  .award-row p{margin:4px 0 0; font-size:15px; opacity:.75;}
+
+  .gallery{background:var(--ink); color:var(--paper);}
+  .gallery .kicker{color:var(--gold);}
+  .gallery-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+  .gallery-grid div{aspect-ratio:1; border-radius:16px; border:3px solid var(--paper);}
+  .g1{background:repeating-linear-gradient(45deg, var(--red) 0 14px, var(--cream) 14px 28px);}
+  .g2{background:var(--denim);}
+  .g3{background:linear-gradient(135deg,var(--gold),var(--red));}
+  .g4{background:var(--cream);}
+  .g5{background:linear-gradient(135deg,var(--denim),var(--ink)); grid-column:span 2;}
+  .g6{background:repeating-linear-gradient(135deg, var(--ink) 0 10px, var(--gold) 10px 20px);}
+  .gallery-note{margin-top:20px; font-size:13px; opacity:.65; max-width:65ch; line-height:1.6;}
+
+  .memory{background:var(--cream);}
+  .memory-box{border:3px solid var(--ink); border-radius:20px; padding:44px; text-align:left; max-width:760px;}
+  .memory-box h2{font-size:clamp(26px,3.4vw,36px); margin-bottom:16px;}
+  .memory-box p{font-size:16px; line-height:1.7;}
+
+  footer{background:var(--ink); color:var(--paper); padding:76px 0 32px;}
+  .footer-top{display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:end; padding-bottom:52px; border-bottom:2px solid rgba(251,244,232,.2);}
+  footer h2{font-size:clamp(28px,3.8vw,42px); letter-spacing:-1px;}
+  .tribute-form{display:flex; flex-direction:column; gap:12px; max-width:440px;}
+  .tribute-form textarea{border:3px solid var(--paper); border-radius:16px; background:transparent; color:var(--paper);
+    padding:14px 16px; font-family:inherit; font-size:15px; min-height:90px; resize:vertical;}
+  .tribute-form textarea::placeholder{color:rgba(251,244,232,.55);}
+  .tribute-form button{align-self:flex-start; border:none; background:var(--red); color:var(--paper); font-weight:700;
+    padding:12px 26px; border-radius:999px; cursor:pointer; font-family:inherit; font-size:15px;}
+  .foot-bottom{display:flex; justify-content:space-between; align-items:center; padding-top:26px; flex-wrap:wrap; gap:12px; font-size:13px; opacity:.6;}
+  .foot-links{display:flex; gap:20px; list-style:none; padding:0; margin:0;}
+  .foot-links a{text-decoration:none;}
+  .foot-links a:hover{color:var(--gold);}
+
+
+  .add-btn{cursor:pointer; padding:11px 22px; user-select:none;}
+  .btn-light{color:var(--paper); border-color:var(--paper);}
+  .btn-light:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--gold);}
+  .list-title{font-size:22px; margin:30px 0 0; letter-spacing:-.4px;}
+  .list-title span{font-family:'Space Grotesk',sans-serif; font-size:13px; font-weight:500; opacity:.6; margin-left:6px;}
+  .track-list.lib{max-height:420px;}
+  .lib-row{display:flex; align-items:stretch; border-bottom:2px solid rgba(22,20,20,.15);}
+  .lib-row .track{flex:1; min-width:0; border-bottom:none;}
+  .lib-row .rm{width:52px; border:none; background:transparent; font-size:24px; cursor:pointer; color:var(--ink); opacity:.55;}
+  .lib-row .rm:hover{opacity:1; color:var(--red);}
+  .seek-row{max-width:var(--max-w); margin:0 auto 8px; display:flex; align-items:center; gap:10px; font-size:12px; font-variant-numeric:tabular-nums;}
+  .seek-row input{flex:1; accent-color:var(--red);}
+  .hero-art.has-photo{background-size:cover; background-position:center top;}
+  .hero-art.has-photo .turban, .hero-art.has-photo .scarf{display:none;}
+  .gallery-actions{margin:26px 0 20px;}
+  .gallery-grid .ph{background-size:cover; background-position:center; position:relative; cursor:pointer;}
+  .gallery-grid .rm-ph{position:absolute; top:8px; right:8px; width:32px; height:32px; border-radius:50%; border:2px solid var(--paper);
+    background:var(--ink); color:var(--paper); font-size:18px; line-height:1; cursor:pointer;}
+  .lightbox{position:fixed; inset:0; background:rgba(0,0,0,.92); z-index:200; display:flex; align-items:center; justify-content:center; padding:20px; cursor:zoom-out;}
+  .lightbox[hidden]{display:none;}
+  .lightbox img{max-width:100%; max-height:100%; border-radius:12px;}
+
+
+
+
+  [hidden]{display:none !important;}
+  .file-banner{background:var(--gold); color:var(--ink); padding:12px 20px; font-size:14px; font-weight:500; text-align:center; border-bottom:3px solid var(--ink); line-height:1.5;}
+  .station{border:3px solid var(--ink); border-radius:20px; background:var(--ink); color:var(--paper); padding:18px; margin-bottom:26px;}
+  .station-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; font-size:13px; font-weight:700;}
+  .live{display:inline-flex; align-items:center; gap:8px;}
+  .live i{width:10px; height:10px; border-radius:50%; background:var(--red); animation:pulse 1.4s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:.25;}}
+  .ist{opacity:.7; font-variant-numeric:tabular-nums;}
+  .station-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:22px; align-items:center;}
+  .screen{border:3px solid var(--paper); border-radius:14px; overflow:hidden; background:#000;}
+  .vid-wrap{aspect-ratio:16/9; width:100%;}
+  .vid-wrap iframe{width:100%; height:100%; display:block;}
+  .np-label{font-size:12px; color:var(--gold); font-weight:700; letter-spacing:.4px; text-transform:uppercase;}
+  .station-info h3{font-size:clamp(20px,2.6vw,28px); margin:6px 0 8px; line-height:1.15;}
+  .station-info p{font-size:14px; opacity:.75; line-height:1.5; margin:0;}
+  .station-actions{display:flex; gap:10px; flex-wrap:wrap; margin:16px 0 10px;}
+  .station .btn{padding:10px 18px; font-size:14px;}
+  .station .btn-solid{background:var(--red); border-color:var(--red); color:var(--paper);}
+  .station .btn-outline{border-color:var(--paper); color:var(--paper);}
+  .station .msg{min-height:20px; font-size:13px; color:var(--gold); opacity:1;}
+  .pl-custom{margin-top:16px; font-size:13px;}
+  .pl-custom summary{cursor:pointer; opacity:.75;}
+  .pl-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;}
+  .pl-row input{flex:1; min-width:200px; border:2px solid var(--paper); border-radius:999px; padding:10px 16px; font-family:inherit; font-size:14px; background:transparent; color:var(--paper);}
+  .track h3{line-height:1.25;}
+
+
+  .stats-tab{position:fixed; left:0; top:40%; z-index:120; writing-mode:vertical-rl; background:var(--gold); color:var(--ink); border:3px solid var(--ink); border-left:none; border-radius:0 12px 12px 0; padding:12px 8px; font-weight:700; font-size:13px; cursor:pointer;}
+  .stats-panel{position:fixed; left:0; top:0; bottom:0; width:310px; max-width:88vw; z-index:130; background:var(--ink); color:var(--paper); padding:18px; overflow-y:auto; transform:translateX(-105%); transition:transform .25s ease; border-right:3px solid var(--red);}
+  .stats-panel.open{transform:translateX(0);}
+  .stats-head{display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; font-size:18px;}
+  .stats-head button{background:transparent; border:2px solid var(--paper); color:var(--paper); width:34px; height:34px; border-radius:50%; font-size:20px; cursor:pointer;}
+  .stat-block{border-top:2px solid rgba(251,244,232,.2); padding:14px 0;}
+  .stat-block h4{margin:0 0 10px; font-size:13px; color:var(--gold); font-family:'Space Grotesk',sans-serif; letter-spacing:.3px; text-transform:uppercase;}
+  .srow{display:flex; justify-content:space-between; gap:12px; font-size:14px; padding:4px 0;}
+  .srow span{opacity:.75;} .srow b{text-align:right; font-variant-numeric:tabular-nums;}
+  .stat-block small{display:block; margin-top:8px; font-size:12px; opacity:.6; line-height:1.5;}
+  #sRecent div{font-size:13px; padding:4px 0; display:flex; justify-content:space-between; gap:10px; opacity:.85;}
+
+  @media (max-width:860px){
+    .station-grid{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-art{order:-1; max-width:300px; margin:0 auto;}
+    .about-grid{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:1fr 1fr;}
+    .g5{grid-column:span 2;}
+    .award-row{grid-template-columns:1fr;}
+    .footer-top{grid-template-columns:1fr;}
+    .player-inner{justify-content:center;}
+    .now-playing{flex-basis:100%; text-align:center;}
+    .vol-group{order:1;}
+  }
+</style>
+</head>
+<body>
+
+<div class="file-banner" id="fileBanner" hidden>Ye page file ki tarah khula hai, isliye YouTube wale gaane yahan play nahi honge (YouTube ko website address chahiye). Ise free hosting par upload karo (Tiiny.host / Netlify Drop). Phone se add kiye MP3 abhi bhi chalenge.</div>
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Sidhu <span>Moose Wala</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#music">Music</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#memory">In Memory</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="years">1993 – 2022</div>
+      <h1>SIDHU<br>MOOSE WALA</h1>
+      <p class="tag">Shubhdeep Singh Sidhu — Punjabi singer, rapper, songwriter and actor from Moosa village, Mansa, Punjab. A voice that carried Punjabi music to the world.</p>
+      <div class="hero-cta">
+        <a class="btn btn-solid" href="#music" id="heroTune">▶ Tune in to Moose Radio</a>
+        <a class="btn btn-outline" href="#memory">In loving memory</a>
+      </div>
+    </div>
+    <div class="hero-art" id="heroArt">
+      <div class="turban"></div>
+      <div class="scarf"></div>
+      <div class="badge">Fan tribute</div>
+    </div>
+  </div>
+</header>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="kicker">The story</div>
+    <div class="about-grid">
+      <div>
+        <p>Born on 11 June 1993 in the village of Moosa, Mansa district, Punjab, Shubhdeep Singh Sidhu grew up immersed in Punjabi folk traditions before earning a degree in Electrical Engineering. Music pulled him in a different direction — he began writing lyrics for other artists in 2016, penning "License" for singer Ninja, before releasing his own debut single "G-Wagon" in 2017.</p>
+        <p>His 2018 debut album <em>PBX 1</em>, released under T-Series, charted internationally and marked the start of a run of hits that carried Punjabi music to new global audiences, with collaborations spanning Indian and international artists. His influence is widely credited by a new generation of Punjabi and South Asian musicians who followed.</p>
+        <p>On 29 May 2022, Sidhu Moose Wala was shot and killed in Jawaharke village, Mansa district, at the age of 28. His music and legacy continue to be celebrated by fans around the world.</p>
+      </div>
+      <div class="fact-list">
+        <div class="fact"><b>Born</b><span>11 June 1993, Moosa, Mansa, Punjab</span></div>
+        <div class="fact"><b>Real name</b><span>Shubhdeep Singh Sidhu</span></div>
+        <div class="fact"><b>Education</b><span>B.Tech, Electrical Engineering</span></div>
+        <div class="fact"><b>Debut single</b><span>"G-Wagon" (2017)</span></div>
+        <div class="fact"><b>Label</b><span>T-Series / 5911 Records (founded 2020)</span></div>
+      </div>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><b id="statTotal">0</b><span>Songs in this catalog</span></div>
+      <div class="stat"><b>2</b><span>Studio albums</span></div>
+      <div class="stat"><b>2016</b><span>Career began as a lyricist</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="music" id="music">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Moose Radio</div>
+      <h2>Live tribute radio</h2>
+      <p style="margin-top:10px; font-size:14px; opacity:.7;">Sirf Sidhu Moose Wala ka music — official channel ke gaane, seedha is page par (teaser/trailer/interview jaise videos filter ho jaate hain). Audio YouTube ke apne player se chalta hai, to artist aur labels ko wahi views milte hain. Yahan kuch host nahi hota.</p>
+    </div>
+
+    <div class="station" id="station">
+      <div class="station-top">
+        <span class="live"><i></i> LIVE RADIO</span>
+        <span class="ist" id="istClock">--:--</span>
+      </div>
+      <div class="station-grid">
+        <div class="screen"><div class="vid-wrap"><div id="ytPlayer"></div></div></div>
+        <div class="station-info">
+          <div class="np-label">Now playing</div>
+          <h3 id="stTitle">Press “Tune in”</h3>
+          <p id="stMeta">Shuffle radio on hoga aur official channel ke gaane chalne lagenge.</p>
+          <div class="station-actions">
+            <button class="btn btn-solid" id="tuneBtn" type="button">▶ Tune in</button>
+            <a class="btn btn-outline" id="spotLink" target="_blank" rel="noopener" hidden>Spotify ↗</a>
+            <a class="btn btn-outline" id="ytmLink" target="_blank" rel="noopener" hidden>YouTube Music ↗</a>
+          </div>
+          <p class="msg" id="stMsg"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="music-toolbar">
+      <div class="search-box">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="searchInput" placeholder="Search songs...">
+      </div>
+      <label class="btn btn-outline add-btn">+ Add music from phone<input type="file" id="musicInput" accept="audio/*,.mp3,.m4a,.aac,.wav,.ogg,.opus,.flac" multiple hidden></label>
+    </div>
+
+    <h3 class="list-title">On air · official channel <span id="ytCount"></span></h3>
+    <div class="track-list" id="ytList"></div>
+    <h3 class="list-title">My library <span id="libCount"></span></h3>
+    <div class="track-list lib" id="libList"></div>
+    <h3 class="list-title">Song catalog <span class="song-count" id="songCount"></span></h3>
+    <div class="track-list" id="trackList"></div>
+  </div>
+</section>
+
+<section class="awards" id="awards">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Recognition</div>
+      <h2>Awards &amp; milestones</h2>
+    </div>
+    <div class="award-row"><b>2017</b><p>Best Lyricist, Brit Asia TV Music Awards</p></div>
+    <div class="award-row"><b>2018</b><p>Best New Age Sensation, PTC Punjabi Music Awards; "Legend" wins Track of the Year and Best International Male Act</p></div>
+    <div class="award-row"><b>2019</b><p>"47" becomes his first song to chart on the UK Singles Chart</p></div>
+    <div class="award-row"><b>2020</b><p>Named among 50 rising artists to watch by The Guardian; founds independent label 5911 Records</p></div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="kicker">Gallery</div>
+    <h2>Your photos</h2>
+    <div class="gallery-actions"><label class="btn btn-light add-btn">+ Add photos<input type="file" id="photoInput" accept="image/*" multiple hidden></label></div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+    <p class="gallery-note" id="galleryNote">Phone se apni photos chuno — pehli photo hero (top) mein bhi dikhegi. Tap karke bada dekho, × se hatao.</p>
+  </div>
+</section>
+
+<section class="memory" id="memory">
+  <div class="wrap">
+    <div class="memory-box">
+      <h2>In loving memory</h2>
+      <p>Sidhu Moose Wala passed away on 29 May 2022 at the age of 28. His music continues to inspire millions of fans and a new generation of Punjabi artists across the world. This page is a fan tribute built to celebrate his life and work.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div><h2>Share a memory or favourite lyric line.</h2></div>
+      <form class="tribute-form" onsubmit="event.preventDefault(); this.querySelector('textarea').value='Thank you for sharing.'; this.querySelector('textarea').disabled=true;">
+        <textarea placeholder="Write your tribute here..." required aria-label="Tribute message"></textarea>
+        <button type="submit">Post tribute</button>
+      </form>
+    </div>
+    <div class="foot-bottom">
+      <span>Unofficial fan tribute · Not affiliated with the Sidhu Moose Wala estate · Audio streams through YouTube’s embedded player; all rights remain with the artist and labels. Nothing is hosted here.</span>
+      <ul class="foot-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#music">Music</a></li>
+        <li><a href="#memory">In Memory</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<div class="player-bar">
+  <div class="seek-row"><span id="curT">0:00</span><input type="range" id="seek" min="0" max="1000" value="0" aria-label="Seek"><span id="durT">0:00</span></div>
+  <div class="player-inner">
+    <div class="now-playing">
+      <b id="npTitle">Pick a song to start</b>
+      <span id="npMeta">—</span>
+    </div>
+    <div class="transport">
+      <button class="ctrl-btn" id="shuffleBtn" title="Shuffle" aria-label="Toggle shuffle">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+      </button>
+      <button class="ctrl-btn" id="prevBtn" title="Previous" aria-label="Previous song">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="19 20 9 12 19 4 19 20"/><rect x="5" y="4" width="2" height="16"/></svg>
+      </button>
+      <button class="ctrl-btn play" id="playBtn" title="Play" aria-label="Play or pause">
+        <svg id="playIcon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+      </button>
+      <button class="ctrl-btn" id="nextBtn" title="Next" aria-label="Next song">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 4 15 12 5 20 5 4"/><rect x="17" y="4" width="2" height="16"/></svg>
+      </button>
+      <button class="ctrl-btn" id="repeatBtn" title="Repeat" aria-label="Toggle repeat">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+      </button>
+    </div>
+    <div class="vol-group">
+      <button class="ctrl-btn" id="muteBtn" title="Mute" aria-label="Mute or unmute">
+        <svg id="volIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.5 8.5a5 5 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+      <input type="range" id="volSlider" min="0" max="100" value="70" aria-label="Volume">
+    </div>
+  </div>
+</div>
+
+<audio id="audio" preload="metadata"></audio>
+<button class="stats-tab" id="statsTab" type="button" aria-expanded="false" aria-controls="statsPanel">📊 Stats</button>
+<aside class="stats-panel" id="statsPanel" aria-label="Site stats">
+  <div class="stats-head"><b>Site stats</b><button type="button" id="statsClose" aria-label="Close stats">×</button></div>
+  <div class="stat-block">
+    <h4>All visitors</h4>
+    <div class="srow"><span>Total visitors</span><b id="sgVisitors">—</b></div>
+    <div class="srow"><span>Total visits</span><b id="sgVisits">—</b></div>
+    <small id="sgNote">Loading…</small>
+  </div>
+  <div class="stat-block">
+    <h4>You, on this device</h4>
+    <div class="srow"><span>Your visits</span><b id="sMine">0</b></div>
+    <div class="srow"><span>First visit</span><b id="sFirst">—</b></div>
+    <div class="srow"><span>Previous visit</span><b id="sPrev">—</b></div>
+    <div class="srow"><span>This session</span><b id="sSess">0s</b></div>
+    <div class="srow"><span>Total time on site</span><b id="sTotal">0s</b></div>
+    <div class="srow"><span>Listening time</span><b id="sListen">0s</b></div>
+  </div>
+  <div class="stat-block">
+    <h4>Recent visits (IST)</h4>
+    <div id="sRecent"></div>
+  </div>
+</aside>
+
+
+<div class="lightbox" id="lightbox" hidden><img id="lbImg" alt="Photo"></div>
+
+<script>
+(function(){
+  const SONGS = [
+    {t:"G-Wagon", y:2017, n:"Debut single, with Gurlez Akhtar"},
+    {t:"Lifestyle", y:2017, n:"feat. Banka & Raja Game Changers"},
+    {t:"So High", y:2017, n:"Breakout hit"},
+    {t:"Issa Jatt", y:2017, n:"with Sunny Malton"},
+    {t:"Koom Kalan Kabaddi Cup", y:2017, n:"Non-album single"},
+    {t:"Just Listen", y:2018, n:"feat. Sunny Malton"},
+    {t:"It's All About You", y:2018, n:"Non-album single"},
+    {t:"Tochan", y:2018, n:"feat. Byg Byrd"},
+    {t:"Famous", y:2018, n:"feat. Intense"},
+    {t:"Dark Love", y:2018, n:"Non-album single"},
+    {t:"Warning Shots", y:2018, n:"with Sunny Malton"},
+    {t:"Dollar", y:2018, n:"Daakuan Da Munda soundtrack"},
+    {t:"Jaan", y:2018, n:"Jattlife Studios"},
+    {t:"Hate", y:2018, n:"Non-album single"},
+    {t:"Jatt Da Muqabala", y:2018, n:"PBX 1"},
+    {t:"Badfella", y:2018, n:"PBX 1"},
+    {t:"I'm Better Now", y:2018, n:"PBX 1"},
+    {t:"Dawood", y:2018, n:"PBX 1"},
+    {t:"Bhang de Bhane", y:2018, n:"with Intense & Sharan Kaur Panesar"},
+    {t:"Outlaw", y:2019, n:"Non-album single"},
+    {t:"Chosen", y:2019, n:"feat. Sunny Malton"},
+    {t:"Legend", y:2019, n:"Track of the Year, Brit Asia TV Music Awards"},
+    {t:"Cut Off", y:2019, n:"Non-album single"},
+    {t:"East Side Flow", y:2019, n:"Non-album single"},
+    {t:"Sidhu's Anthem", y:2019, n:"with Sunny Malton"},
+    {t:"Mafia Style", y:2019, n:"Non-album single"},
+    {t:"Poison", y:2019, n:"with R Nait"},
+    {t:"Sohne Lagde", y:2019, n:"with The PropheC"},
+    {t:"Hathyaar", y:2019, n:"Sikander 2 soundtrack"},
+    {t:"Hauli Hauli", y:2019, n:"with Byg Byrd & Sunny Malton"},
+    {t:"Dogar", y:2019, n:"Teri Meri Jodi soundtrack"},
+    {t:"Jatti Jeone Mour Wargi", y:2019, n:"Ardab Mutiyaran soundtrack"},
+    {t:"B-Town", y:2019, n:"feat. Sunny Malton"},
+    {t:"47", y:2019, n:"with Mist, Steel Banglez & Stefflon Don · UK Top 20"},
+    {t:"Forget About It", y:2019, n:"with Sunny Malton"},
+    {t:"Dhakka", y:2019, n:"feat. Afsana Khan"},
+    {t:"Old Skool", y:2020, n:"Prem Dhillon feat. Sidhu Moose Wala & Nseeb"},
+    {t:"Flex / El Chapo", y:2020, n:"Non-album single"},
+    {t:"Gwacheya Gurbakash", y:2020, n:"feat. R Nait"},
+    {t:"Tibbeyan Da Putt", y:2020, n:"Non-album single"},
+    {t:"911", y:2020, n:"feat. Raja Game Changers"},
+    {t:"Approach", y:2020, n:"Non-album single"},
+    {t:"8 Cylinder", y:2020, n:"Non-album single"},
+    {t:"Boss", y:2020, n:"Snitches Get Stitches"},
+    {t:"Roti", y:2020, n:"Non-album single"},
+    {t:"Dear Mama", y:2020, n:"Dedicated to his mother"},
+    {t:"Bambiha Bole", y:2020, n:"with Amrit Maan · Top 5 Global YouTube chart"},
+    {t:"Sanju", y:2020, n:"Non-album single"},
+    {t:"Doctor", y:2020, n:"Non-album single"},
+    {t:"No Worries", y:2020, n:"with Raja Game Changers"},
+    {t:"My Block", y:2020, n:"Non-album single"},
+    {t:"Bad", y:2020, n:"Speed Records"},
+    {t:"Panjab – My Motherland", y:2020, n:"Non-album single"},
+    {t:"Sin", y:2021, n:"Non-album single"},
+    {t:"Bitch I'm Back", y:2021, n:"Moosetape"},
+    {t:"Burberry", y:2021, n:"Moosetape"},
+    {t:"Unfuckwithable", y:2021, n:"Moosetape bonus track, feat. Afsana Khan"},
+    {t:"Racks and Rounds", y:2021, n:"Moosetape, feat. Sikander Kahlon"},
+    {t:"Us", y:2021, n:"Moosetape, feat. Raja Kumari"},
+    {t:"Moosedrilla", y:2021, n:"Moosetape, feat. Divine"},
+    {t:"Brown Shortie", y:2021, n:"Moosetape"},
+    {t:"Me and My Girlfriend", y:2021, n:"Moosetape"},
+    {t:"These Days", y:2021, n:"Moosetape, feat. Bohemia"},
+    {t:"Signed to God", y:2021, n:"Moosetape"},
+    {t:"Malwa Block", y:2021, n:"Non-album single"},
+    {t:"Invincible", y:2021, n:"feat. Stefflon Don"},
+    {t:"G-Shit", y:2021, n:"feat. Blockboi Twitch"},
+    {t:"Built Different", y:2021, n:"Non-album single"},
+    {t:"Calaboose", y:2021, n:"Non-album single"},
+    {t:"295", y:2021, n:"Widely regarded fan favourite"},
+    {t:"IDGAF", y:2021, n:"feat. Morrisson"},
+    {t:"Power", y:2021, n:"Non-album single"},
+    {t:"GOAT", y:2021, n:"Non-album single"},
+    {t:"Celebrity Killer", y:2021, n:"feat. Tion Wayne"},
+    {t:"Jailaan", y:2021, n:"Moosa Jatt soundtrack"},
+    {t:"Saab", y:2021, n:"with Gurtaj · Yes I Am Student soundtrack"},
+    {t:"Athra Style", y:2021, n:"with Jenny Johal"},
+    {t:"Yaarian", y:2021, n:"Yes I Am Student soundtrack"},
+    {t:"Baapu", y:2021, n:"Snitches Get Stitches & Yes I Am Student"},
+    {t:"Satisfy", y:2021, n:"with Shooter Kahlon"},
+    {t:"Youngest in Charge", y:2022, n:"feat. Sunny Malton"},
+    {t:"Fuck Em All", y:2022, n:"with Sunny Malton"},
+    {t:"ScapeGoat", y:2022, n:"Non-album single"},
+    {t:"Never Fold", y:2022, n:"No Name, with Sunny Malton"},
+    {t:"0 to 100", y:2022, n:"No Name"},
+    {t:"Love Sick", y:2022, n:"No Name, feat. AR Paisley"},
+    {t:"Everybody Hurts", y:2022, n:"No Name"},
+    {t:"Bloodlust", y:2022, n:"feat. Mr. Capone-E"},
+    {t:"The Last Ride", y:2022, n:"with Wazir Patar · posthumous release"},
+    {t:"Levels", y:2022, n:"feat. Sunny Malton · posthumous release"},
+    {t:"SYL", y:2022, n:"Posthumous release"},
+    {t:"Vaar", y:2022, n:"Posthumous release"},
+    {t:"Mera Na", y:2023, n:"with Burna Boy & Steel Banglez"},
+    {t:"Watch Out", y:2023, n:"with Sikander Kahlon"},
+    {t:"Chorni", y:2023, n:"Divine feat. Sidhu Moose Wala"},
+    {t:"Drippy", y:2024, n:"with AR Paisley & Mxrci"},
+    {t:"410", y:2024, n:"with Sunny Malton"},
+    {t:"Attach", y:2024, n:"with Fredo & Steel Banglez"},
+    {t:"Dilemma", y:2024, n:"Stefflon Don feat. Sidhu Moose Wala"},
+    {t:"Lock", y:2025, n:"with The Kidd"},
+    {t:"0008", y:2025, n:"Moose Print EP"},
+    {t:"Neal", y:2025, n:"Moose Print EP"},
+    {t:"Take Notes", y:2025, n:"Moose Print EP"},
+    {t:"Barota", y:2025, n:"Non-album single"},
+    {t:"Eyes on Me", y:2026, n:"Non-album single"}
+  ];
+  const UPLOADS = 'UU9ChdqQRCaZmTCwSJ49tcbw';
+  const $ = function(id){ return document.getElementById(id); };
+  $('statTotal').textContent = SONGS.length;
+
+  const audio=$('audio'), ytList=$('ytList'), ytCount=$('ytCount'), libList=$('libList'), libCount=$('libCount'),
+        trackList=$('trackList'), songCount=$('songCount'), searchInput=$('searchInput'),
+        npTitle=$('npTitle'), npMeta=$('npMeta'), playBtn=$('playBtn'), playIcon=$('playIcon'),
+        shuffleBtn=$('shuffleBtn'), repeatBtn=$('repeatBtn'), muteBtn=$('muteBtn'), volSlider=$('volSlider'),
+        volIcon=$('volIcon'), seek=$('seek'), curT=$('curT'), durT=$('durT'),
+        galleryGrid=$('galleryGrid'), galleryNote=$('galleryNote'), heroArt=$('heroArt'),
+        lightbox=$('lightbox'), lbImg=$('lbImg'), stTitle=$('stTitle'), stMeta=$('stMeta'), stMsg=$('stMsg'),
+        tuneBtn=$('tuneBtn'), spotLink=$('spotLink'), ytmLink=$('ytmLink'), istClock=$('istClock');
+
+  let tracks=[], lib=[], photos=[], db=null, cur=null, srcName='Official channel';
+  let shuffleOn=false, repeatOn=false, vol=70, muted=false;
+  let yt=null, ytReady=false, ytPlaying=false, tick=null, errStreak=0, afterTracks=[], listFailed=false, pollTimer=null;
+  let titleCache={};
+  try{ titleCache=JSON.parse(localStorage.getItem('moose-titles')||'{}')||{}; }catch(e){ titleCache={}; }
+  function saveTitles(){ try{ localStorage.setItem('moose-titles',JSON.stringify(titleCache)); }catch(e){} }
+  audio.volume=vol/100;
+
+  const fmt=function(t){ if(!isFinite(t)) return '0:00'; const m=Math.floor(t/60), r=Math.floor(t%60); return m+':'+(r<10?'0':'')+r; };
+  const cleanTitle=function(n){ return n.replace(/\.[^.]+$/,'').replace(/_+/g,' ').trim(); };
+  const tok=function(x){ return x.toLowerCase().replace(/[^a-z0-9]+/g,' ').trim().split(' ').filter(Boolean); };
+  function seqIn(hay,needle){
+    if(!needle.length) return false;
+    for(let i=0;i+needle.length<=hay.length;i++){ let ok=true; for(let j=0;j<needle.length;j++){ if(hay[i+j]!==needle[j]){ ok=false; break; } } if(ok) return true; }
+    return false;
+  }
+  const BAD=/teaser|trailer|promo|interview|behind the scenes|making of|\bbts\b|announcement|live ?stream|short film|documentary|podcast|reaction|tribute/i;
+  function okT(t){ return !t.title || !BAD.test(t.title); }
+  function allowed(kind,i){ return kind==='lib' || okT(tracks[i]); }
+  function pick(kind,from,dir){
+    const n=kind==='lib'?lib.length:tracks.length; if(!n) return -1;
+    const okIdx=[]; for(let i=0;i<n;i++){ if(allowed(kind,i)) okIdx.push(i); }
+    if(!okIdx.length) return -1;
+    if(shuffleOn&&okIdx.length>1){ let i; do{ i=okIdx[Math.floor(Math.random()*okIdx.length)]; }while(i===from); return i; }
+    for(let k=1;k<=n;k++){ const i=(((from+dir*k)%n)+n)%n; if(allowed(kind,i)) return i; }
+    return okIdx[0];
+  }
+  function findYT(title){ const n=tok(title); for(let i=0;i<tracks.length;i++){ if(okT(tracks[i]) && tracks[i].title && seqIn(tok(tracks[i].title),n)) return i; } return -1; }
+  function findLocal(title){ const n=tok(title); for(let i=0;i<lib.length;i++){ if(seqIn(tok(lib[i].title),n)) return i; } return -1; }
+  function mk(tag,cls,text){ const e=document.createElement(tag); if(cls) e.className=cls; if(text!==undefined) e.textContent=text; return e; }
+  function parsePlaylistId(x){ const m=(x||'').match(/[?&]list=([A-Za-z0-9_-]+)/); return m?m[1]:null; }
+  function searchQ(t){ let q=t.replace(/\(.*?\)|\[.*?\]/g,' ').split('|')[0].replace(/\s+/g,' ').trim(); if(!/moose/i.test(q)) q+=' Sidhu Moose Wala'; return q; }
+  function showMsg(text,href,label){
+    stMsg.textContent=text||'';
+    if(href){ const a=mk('a',null,label); a.href=href; a.target='_blank'; a.rel='noopener'; a.style.color='inherit'; a.style.textDecoration='underline'; stMsg.appendChild(a); }
+  }
+  function setNow(title,meta,withLinks){
+    npTitle.textContent=title; npMeta.textContent=meta; stTitle.textContent=title; stMeta.textContent=meta;
+    tuneBtn.textContent='⏭ Next on air';
+    if(withLinks){
+      const q=searchQ(title);
+      spotLink.href='https://open.spotify.com/search/'+encodeURIComponent(q);
+      ytmLink.href='https://music.youtube.com/search?q='+encodeURIComponent(q);
+      spotLink.hidden=false; ytmLink.hidden=false;
+    } else { spotLink.hidden=true; ytmLink.hidden=true; }
+    try{ if('mediaSession' in navigator) navigator.mediaSession.metadata=new MediaMetadata({title:title}); }catch(e){}
+  }
+  function resetNow(){
+    npTitle.textContent='Pick a song to start'; npMeta.textContent='—';
+    stTitle.textContent='Press “Tune in”'; stMeta.textContent='Shuffle radio on hoga aur official channel ke gaane chalne lagenge.';
+    tuneBtn.textContent='▶ Tune in'; spotLink.hidden=true; ytmLink.hidden=true; setIcon(false);
+  }
+  function setIcon(p){ playIcon.innerHTML=p?'<rect x="5" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>':'<polygon points="6 3 20 12 6 21 6 3"/>'; }
+
+  function clock(){ try{ istClock.textContent=new Date().toLocaleTimeString('en-IN',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit',hour12:true})+' IST'; }catch(e){} }
+  clock(); setInterval(clock,15000);
+
+  function openDB(){ return new Promise(function(res){
+    try{ const r=indexedDB.open('moose-tribute',1);
+      r.onupgradeneeded=function(){ r.result.createObjectStore('files',{keyPath:'id',autoIncrement:true}); };
+      r.onsuccess=function(){ res(r.result); }; r.onerror=function(){ res(null); };
+    }catch(e){ res(null); } }); }
+  function dbAll(){ return new Promise(function(res){ if(!db) return res([]);
+    try{ const q=db.transaction('files').objectStore('files').getAll(); q.onsuccess=function(){ res(q.result||[]); }; q.onerror=function(){ res([]); }; }catch(e){ res([]); } }); }
+  function dbAdd(rec){ return new Promise(function(res){ if(!db) return res(null);
+    try{ const q=db.transaction('files','readwrite').objectStore('files').add(rec); q.onsuccess=function(){ res(q.result); }; q.onerror=function(){ res(null); }; }catch(e){ res(null); } }); }
+  function dbDel(id){ if(!db||id==null) return; try{ db.transaction('files','readwrite').objectStore('files').delete(id); }catch(e){} }
+
+  function loadYT(){
+    if(window.YT && window.YT.Player){ createYT(); return; }
+    const t=document.createElement('script'); t.src='https://www.youtube.com/iframe_api';
+    t.onerror=function(){ listFailed=true; renderYT(); showMsg('YouTube load nahi hua — internet check karo.'); };
+    document.body.appendChild(t);
+    window.onYouTubeIframeAPIReady=createYT;
+  }
+  function createYT(){
+    if(yt) return;
+    yt=new YT.Player('ytPlayer',{ width:'100%', height:'100%',
+      playerVars:{ playsinline:1, rel:0, modestbranding:1 },
+      events:{
+        onReady:function(){ ytReady=true; yt.setVolume(vol); if(muted) yt.mute(); loadSource(UPLOADS); startTick(); },
+        onStateChange:onYTState,
+        onError:onYTError
+      }});
+  }
+  function loadSource(listId){
+    tracks=[]; listFailed=false; renderAll();
+    try{ yt.cuePlaylist({listType:'playlist', list:listId}); }catch(e){ listFailed=true; renderYT(); return; }
+    let tries=0; clearInterval(pollTimer);
+    pollTimer=setInterval(function(){
+      tries++; let ids=null; try{ ids=yt.getPlaylist(); }catch(e){}
+      if(ids && ids.length){
+        clearInterval(pollTimer);
+        tracks=ids.map(function(id){ return {id:id, title:titleCache[id]||null}; });
+        showMsg(''); renderAll(); fetchTitles();
+        const f=afterTracks; afterTracks=[]; f.forEach(function(fn){ fn(); });
+      } else if(tries>30){
+        clearInterval(pollTimer); listFailed=true; renderAll();
+        showMsg('Playlist load nahi hui. Neeche doosri playlist try karo ya phone se MP3 add karo.');
+      }
+    },500);
+  }
+  async function fetchTitle(id){
+    const u='https://www.youtube.com/watch?v='+id;
+    const eps=['https://www.youtube.com/oembed?format=json&url='+encodeURIComponent(u),'https://noembed.com/embed?url='+encodeURIComponent(u)];
+    for(const e of eps){ try{ const r=await fetch(e); if(!r.ok) continue; const j=await r.json(); if(j && j.title) return j.title; }catch(x){} }
+    return null;
+  }
+  async function fetchTitles(){
+    const todo=tracks.filter(function(t){ return !t.title; });
+    let k=0, fails=0;
+    async function worker(){
+      while(k<todo.length && fails<6){
+        const t=todo[k++]; const ti=await fetchTitle(t.id);
+        if(ti){ fails=0; t.title=ti; titleCache[t.id]=ti; } else { fails++; }
+        if(k%10===0) renderAll();
+      }
+    }
+    await Promise.all([worker(),worker(),worker(),worker()]);
+    saveTitles(); renderAll();
+  }
+  function startTick(){
+    if(tick) return;
+    tick=setInterval(function(){
+      if(!ytReady||!cur||cur.kind!=='yt') return;
+      let d=0,c=0; try{ d=yt.getDuration()||0; c=yt.getCurrentTime()||0; }catch(e){}
+      seek.value=d?c/d*1000:0; curT.textContent=fmt(c); durT.textContent=fmt(d);
+    },500);
+  }
+  function onYTState(e){
+    if(!cur||cur.kind!=='yt') return;
+    if(e.data===1){
+      ytPlaying=true; errStreak=0; setIcon(true);
+      try{ const d=yt.getVideoData(); if(d && d.title && tracks[cur.i]){ tracks[cur.i].title=d.title; titleCache[tracks[cur.i].id]=d.title; saveTitles(); if(BAD.test(d.title)){ goNext(); return; } setNow(d.title, srcName+' · '+(cur.i+1)+' of '+tracks.length, true); } }catch(x){}
+      renderAll();
+    }
+    if(e.data===2){ ytPlaying=false; setIcon(false); renderAll(); }
+    if(e.data===0){ ytPlaying=false; setIcon(false); if(repeatOn) playYT(cur.i); else goNext(); }
+  }
+  function onYTError(e){
+    const c=e.data;
+    const id=(cur&&cur.kind==='yt'&&tracks[cur.i])?tracks[cur.i].id:null;
+    const why={2:'link galat',5:'player error',100:'video hata diya gaya ya private',101:'owner ne embed band rakha hai',150:'owner ne embed band rakha hai',153:'page file ki tarah khula hai ya referer nahi mila — website ki tarah host karo'}[c]||'unknown';
+    const link=id?('https://www.youtube.com/watch?v='+id):null;
+    if(location.protocol==='file:'||c===153){ showMsg('Error '+c+': '+why+'.',link,'YouTube par kholo ↗'); return; }
+    errStreak++;
+    if(errStreak<=5){ showMsg('Error '+c+' ('+why+') — agla try kar raha hoon.'); goNext(); }
+    else showMsg('Error '+c+' ('+why+'). Lagatar kai videos fail hue.',link,'YouTube par kholo ↗');
+  }
+
+  function keepScroll(el,fn){ const st=el.scrollTop; fn(); el.scrollTop=st; }
+  function renderYT(){
+    keepScroll(ytList,function(){
+      const q=searchInput.value.trim().toLowerCase();
+      ytList.innerHTML=''; ytCount.textContent=tracks.length?'('+tracks.filter(okT).length+')':'';
+      if(!tracks.length){ ytList.appendChild(mk('div','no-results', listFailed?'List load nahi hui. Internet check karo, ya page ko website ki tarah host karo.':'Official channel ki list load ho rahi hai…')); return; }
+      let shown=0;
+      tracks.forEach(function(t,i){
+        if(!okT(t)) return;
+        const title=t.title||('Track '+(i+1));
+        if(q && title.toLowerCase().indexOf(q)===-1) return;
+        shown++;
+        const active=cur&&cur.kind==='yt'&&cur.i===i;
+        const b=mk('button','track'+(active?' active':'')); b.type='button';
+        const w=mk('div'); w.appendChild(mk('h3',null,title)); w.appendChild(mk('div','meta',srcName+' · YouTube player'));
+        b.appendChild(mk('span','idx',String(shown))); b.appendChild(w);
+        b.appendChild(mk('span','year-pill',(active&&ytPlaying)?'Playing':'Play'));
+        b.addEventListener('click',function(){ playYT(i); });
+        ytList.appendChild(b);
+      });
+      if(!shown) ytList.appendChild(mk('div','no-results','Koi match nahi.'));
+    });
+  }
+  function renderLib(){
+    keepScroll(libList,function(){
+      const q=searchInput.value.trim().toLowerCase();
+      libList.innerHTML=''; libCount.textContent='('+lib.length+')';
+      if(!lib.length){ libList.appendChild(mk('div','no-results','Abhi koi song add nahi hua. "+ Add music from phone" dabao.')); return; }
+      let shown=0;
+      lib.forEach(function(t,i){
+        if(q && t.title.toLowerCase().indexOf(q)===-1) return;
+        shown++;
+        const active=cur&&cur.kind==='lib'&&cur.i===i;
+        const row=mk('div','lib-row');
+        const b=mk('button','track'+(active?' active':'')); b.type='button';
+        const w=mk('div'); w.appendChild(mk('h3',null,t.title)); w.appendChild(mk('div','meta',t.name));
+        b.appendChild(mk('span','idx',String(shown))); b.appendChild(w);
+        b.appendChild(mk('span','year-pill',(active&&!audio.paused)?'Playing':'Play'));
+        b.addEventListener('click',function(){ playLib(i); });
+        const rm=mk('button','rm','×'); rm.type='button'; rm.setAttribute('aria-label','Remove '+t.title);
+        rm.addEventListener('click',function(){ removeTrack(i); });
+        row.appendChild(b); row.appendChild(rm); libList.appendChild(row);
+      });
+      if(!shown) libList.appendChild(mk('div','no-results','Library mein koi match nahi.'));
+    });
+  }
+  function renderCatalog(){
+    keepScroll(trackList,function(){
+      const q=searchInput.value.trim().toLowerCase();
+      trackList.innerHTML='';
+      let shown=0;
+      SONGS.forEach(function(s,i){
+        if(q && s.t.toLowerCase().indexOf(q)===-1) return;
+        shown++;
+        let status;
+        if(findLocal(s.t)>=0) status='▶ plays from your library';
+        else if(findYT(s.t)>=0) status='▶ plays here (official channel)';
+        else if(!tracks.length) status=listFailed?'—':'loading…';
+        else status='not on the official channel list';
+        const b=mk('button','track'); b.type='button';
+        const w=mk('div'); w.appendChild(mk('h3',null,s.t)); w.appendChild(mk('div','meta',s.n+' · '+status));
+        b.appendChild(mk('span','idx',String(shown))); b.appendChild(w); b.appendChild(mk('span','year-pill',String(s.y)));
+        b.addEventListener('click',function(){ playCatalog(i); });
+        trackList.appendChild(b);
+      });
+      songCount.textContent='('+shown+' of '+SONGS.length+')';
+      if(!shown) trackList.appendChild(mk('div','no-results','Koi song match nahi hua.'));
+    });
+  }
+  function renderAll(){ renderYT(); renderLib(); renderCatalog(); }
+
+  function stopAudio(){ audio.pause(); }
+  function stopYT(){ if(ytReady){ try{ yt.pauseVideo(); }catch(e){} } ytPlaying=false; }
+  function playYT(i){
+    if(!ytReady||i<0||i>=tracks.length) return;
+    stopAudio(); cur={kind:'yt',i:i};
+    showMsg('');
+    try{ yt.loadVideoById(tracks[i].id); }catch(e){}
+    setNow(tracks[i].title||'Loading…', srcName+' · '+(i+1)+' of '+tracks.length, !!tracks[i].title);
+    renderAll();
+  }
+  function playLib(i){
+    if(i<0||i>=lib.length) return;
+    stopYT(); cur={kind:'lib',i:i}; showMsg('');
+    audio.src=lib[i].url; audio.loop=repeatOn;
+    const p=audio.play(); if(p&&p.catch) p.catch(function(){});
+    setNow(lib[i].title,'Your library · '+(i+1)+' of '+lib.length,false);
+    renderAll();
+  }
+  function playCatalog(i){
+    const s=SONGS[i], li=findLocal(s.t);
+    if(li>=0){ playLib(li); return; }
+    const yi=findYT(s.t);
+    if(yi>=0){ playYT(yi); return; }
+    if(!tracks.length) showMsg(listFailed?'Playlist load nahi hui.':'Station load ho raha hai… thodi der baad try karo.');
+    else showMsg('“'+s.t+'” official channel par nahi mila. ','https://www.youtube.com/results?search_query='+encodeURIComponent('Sidhu Moose Wala '+s.t),'YouTube par dhoondho ↗');
+    $('station').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  function startRadio(){
+    shuffleOn=true; shuffleBtn.classList.add('on');
+    const go=function(){ const i=pick('yt',-1,1); if(i>=0) playYT(i); };
+    if(tracks.length){ go(); return; }
+    if(listFailed){ showMsg('Playlist load nahi hui. Neeche doosri playlist try karo ya phone se MP3 add karo.'); return; }
+    showMsg('Station tune ho raha hai… bas ek second.'); afterTracks.push(go);
+  }
+  function listLen(){ return cur&&cur.kind==='lib'?lib.length:tracks.length; }
+  function goNext(){
+    if(!cur){ if(tracks.length||!lib.length) startRadio(); else playLib(0); return; }
+    const i=pick(cur.kind,cur.i,1); if(i<0) return;
+    if(cur.kind==='lib') playLib(i); else playYT(i);
+  }
+  function goPrev(){
+    if(!cur){ hint(); return; }
+    if(cur.kind==='lib'&&audio.currentTime>3){ audio.currentTime=0; return; }
+    if(cur.kind==='yt'&&ytReady){ let c=0; try{ c=yt.getCurrentTime()||0; }catch(e){} if(c>3){ yt.seekTo(0,true); return; } }
+    const i=pick(cur.kind,cur.i,-1); if(i<0) return;
+    if(cur.kind==='lib') playLib(i); else playYT(i);
+  }
+  function hint(){ stTitle.textContent='Pehle “Tune in” dabao'; stMeta.textContent='Ya phone se MP3 add karo.'; }
+  function togglePlay(){
+    if(!cur){ if(tracks.length||!lib.length) startRadio(); else playLib(0); return; }
+    if(cur.kind==='lib'){ if(audio.paused){ const p=audio.play(); if(p&&p.catch) p.catch(function(){}); } else audio.pause(); }
+    else if(ytReady){ if(ytPlaying) yt.pauseVideo(); else yt.playVideo(); }
+  }
+  function removeTrack(i){
+    const t=lib[i];
+    if(cur&&cur.kind==='lib'){
+      if(cur.i===i){ audio.pause(); audio.removeAttribute('src'); audio.load(); cur=null; resetNow(); }
+      else if(i<cur.i){ cur.i--; }
+    }
+    URL.revokeObjectURL(t.url); dbDel(t.id); lib.splice(i,1); renderAll();
+  }
+
+  audio.addEventListener('play',function(){ if(cur&&cur.kind==='lib'){ setIcon(true); renderLib(); } });
+  audio.addEventListener('pause',function(){ if(cur&&cur.kind==='lib'){ setIcon(false); renderLib(); } });
+  audio.addEventListener('ended',function(){ if(cur&&cur.kind==='lib'){ if(lib.length>1) goNext(); else setIcon(false); } });
+  audio.addEventListener('timeupdate',function(){ if(!cur||cur.kind!=='lib') return; seek.value=audio.duration?(audio.currentTime/audio.duration*1000):0; curT.textContent=fmt(audio.currentTime); });
+  audio.addEventListener('loadedmetadata',function(){ if(cur&&cur.kind==='lib') durT.textContent=fmt(audio.duration); });
+  audio.addEventListener('error',function(){ if(audio.getAttribute('src')) showMsg('Ye file play nahi ho pa rahi (format support nahi).'); });
+  seek.addEventListener('input',function(){
+    if(!cur) return;
+    if(cur.kind==='lib'){ if(audio.duration) audio.currentTime=seek.value/1000*audio.duration; }
+    else if(ytReady){ const d=yt.getDuration(); if(d) yt.seekTo(seek.value/1000*d,true); }
+  });
+
+  playBtn.addEventListener('click',togglePlay);
+  $('nextBtn').addEventListener('click',goNext);
+  $('prevBtn').addEventListener('click',goPrev);
+  tuneBtn.addEventListener('click',function(){ if(cur) goNext(); else startRadio(); });
+  $('heroTune').addEventListener('click',function(){ if(!cur) startRadio(); });
+  shuffleBtn.addEventListener('click',function(){ shuffleOn=!shuffleOn; shuffleBtn.classList.toggle('on',shuffleOn); });
+  repeatBtn.addEventListener('click',function(){ repeatOn=!repeatOn; audio.loop=repeatOn; repeatBtn.classList.toggle('on',repeatOn); });
+  function volIconUpdate(){
+    volIcon.innerHTML=(muted||vol===0)
+      ? '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2"/><line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2"/>'
+      : '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.5 8.5a5 5 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="2"/>';
+  }
+  function applyVolume(){
+    audio.volume=vol/100; audio.muted=muted;
+    if(ytReady){ try{ yt.setVolume(vol); if(muted) yt.mute(); else yt.unMute(); }catch(e){} }
+    muteBtn.classList.toggle('on',muted); volIconUpdate();
+  }
+  muteBtn.addEventListener('click',function(){ muted=!muted; applyVolume(); });
+  volSlider.addEventListener('input',function(){ vol=Number(volSlider.value); if(muted&&vol>0) muted=false; applyVolume(); });
+  try{ if('mediaSession' in navigator){ navigator.mediaSession.setActionHandler('nexttrack',goNext); navigator.mediaSession.setActionHandler('previoustrack',goPrev); } }catch(e){}
+  searchInput.addEventListener('input',renderAll);
+
+  const AUD=/\.(mp3|m4a|aac|wav|ogg|opus|flac|weba|webm)$/i;
+  async function addAudio(files){
+    let added=0;
+    for(const f of files){
+      if(!(f.type.indexOf('audio')===0 || AUD.test(f.name))) continue;
+      const id=await dbAdd({kind:'audio',name:f.name,blob:f});
+      lib.push({id:id,name:f.name,title:cleanTitle(f.name),url:URL.createObjectURL(f)}); added++;
+    }
+    renderAll();
+    if(added) showMsg(added+' song(s) library mein add ho gaye.');
+  }
+  $('musicInput').addEventListener('change',function(e){ const f=Array.from(e.target.files); e.target.value=''; addAudio(f); });
+
+  function renderGallery(){
+    galleryGrid.innerHTML='';
+    if(!photos.length){ ['g1','g2','g5','g3','g4','g6'].forEach(function(c){ galleryGrid.appendChild(mk('div',c)); }); }
+    else photos.forEach(function(p,i){
+      const d=mk('div','ph'); d.style.backgroundImage='url("'+p.url+'")';
+      d.addEventListener('click',function(){ lbImg.src=p.url; lightbox.hidden=false; });
+      const x=mk('button','rm-ph','×'); x.type='button'; x.setAttribute('aria-label','Remove photo');
+      x.addEventListener('click',function(ev){ ev.stopPropagation(); URL.revokeObjectURL(p.url); dbDel(p.id); photos.splice(i,1); renderGallery(); });
+      d.appendChild(x); galleryGrid.appendChild(d);
+    });
+    if(photos.length){ heroArt.classList.add('has-photo'); heroArt.style.backgroundImage='url("'+photos[0].url+'")'; }
+    else { heroArt.classList.remove('has-photo'); heroArt.style.backgroundImage=''; }
+  }
+  async function addPhotos(files){
+    for(const f of files){
+      if(!(f.type.indexOf('image')===0 || /\.(jpe?g|png|webp|gif|avif|heic)$/i.test(f.name))) continue;
+      const id=await dbAdd({kind:'image',name:f.name,blob:f});
+      photos.push({id:id,url:URL.createObjectURL(f)});
+    }
+    renderGallery();
+  }
+  $('photoInput').addEventListener('change',function(e){ const f=Array.from(e.target.files); e.target.value=''; addPhotos(f); });
+  lightbox.addEventListener('click',function(){ lightbox.hidden=true; lbImg.removeAttribute('src'); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') lightbox.hidden=true; });
+
+  window.__mooseState=function(){ return !!cur && (cur.kind==='lib' ? !audio.paused : ytPlaying); };
+  if(location.protocol==='file:') $('fileBanner').hidden=false;
+  renderAll(); renderGallery(); volIconUpdate(); loadYT();
+  (async function(){
+    db=await openDB();
+    if(!db){ galleryNote.textContent+=' (Is browser mein files save nahi ho paengi — page band karne par dobara add karni padengi.)'; return; }
+    const recs=await dbAll();
+    recs.forEach(function(r){
+      if(!r.blob) return;
+      if(r.kind==='audio') lib.push({id:r.id,name:r.name,title:cleanTitle(r.name),url:URL.createObjectURL(r.blob)});
+      else if(r.kind==='image') photos.push({id:r.id,url:URL.createObjectURL(r.blob)});
+    });
+    renderAll(); renderGallery();
+  })();
+})();
+</script>
+
+<script>
+(function(){
+  const NS='sidhu-moose-tribute-radio', K_VIS='visits', K_UNQ='visitors';
+  const $=function(id){ return document.getElementById(id); };
+  let st={}; try{ st=JSON.parse(localStorage.getItem('moose-stats')||'{}')||{}; }catch(e){ st={}; }
+  st.visits=st.visits||0; st.total=st.total||0; st.listen=st.listen||0; st.log=st.log||[];
+  let newSession=true;
+  try{ newSession=!sessionStorage.getItem('moose-sess'); sessionStorage.setItem('moose-sess','1'); }catch(e){}
+  const now=Date.now();
+  if(newSession || !st.log.length){
+    st.visits++; if(!st.first) st.first=now;
+    st.prev=st.last||null; st.last=now;
+    st.log.push({s:now,d:0}); if(st.log.length>20) st.log.shift();
+  }
+  function save(){ try{ localStorage.setItem('moose-stats',JSON.stringify(st)); }catch(e){} }
+  save();
+
+  const ist=function(t){ try{ return new Date(t).toLocaleString('en-IN',{timeZone:'Asia/Kolkata',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',hour12:true}); }catch(e){ return new Date(t).toLocaleString(); } };
+  const dur=function(sec){ sec=Math.max(0,Math.floor(sec)); const h=Math.floor(sec/3600), m=Math.floor(sec%3600/60), s=sec%60; return (h?h+'h ':'')+((h||m)?m+'m ':'')+s+'s'; };
+
+  function render(){
+    const e=st.log[st.log.length-1];
+    $('sMine').textContent=st.visits;
+    $('sFirst').textContent=st.first?ist(st.first):'—';
+    $('sPrev').textContent=st.prev?ist(st.prev):'This is your first visit';
+    $('sSess').textContent=dur(e?e.d:0);
+    $('sTotal').textContent=dur(st.total);
+    $('sListen').textContent=dur(st.listen);
+    const box=$('sRecent'); box.innerHTML='';
+    st.log.slice().reverse().slice(0,10).forEach(function(v){
+      const row=document.createElement('div');
+      const a=document.createElement('span'); a.textContent=ist(v.s);
+      const b=document.createElement('span'); b.textContent=dur(v.d);
+      row.appendChild(a); row.appendChild(b); box.appendChild(row);
+    });
+  }
+  render();
+
+  setInterval(function(){
+    const e=st.log[st.log.length-1];
+    if(!document.hidden){ st.total++; if(e) e.d++; }
+    if(window.__mooseState && window.__mooseState()) st.listen++;
+    render();
+    if(st.total%5===0) save();
+  },1000);
+  document.addEventListener('visibilitychange',function(){ if(document.hidden) save(); });
+  window.addEventListener('pagehide',save);
+
+  const panel=$('statsPanel'), tab=$('statsTab');
+  function toggle(open){ panel.classList.toggle('open',open); tab.setAttribute('aria-expanded',String(open)); }
+  tab.addEventListener('click',function(){ toggle(!panel.classList.contains('open')); });
+  $('statsClose').addEventListener('click',function(){ toggle(false); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') toggle(false); });
+
+  async function api(path){
+    const c=new AbortController(); const t=setTimeout(function(){ c.abort(); },7000);
+    try{
+      const r=await fetch('https://api.counterapi.dev/v1/'+NS+'/'+path,{signal:c.signal});
+      if(!r.ok) return null;
+      const j=await r.json(); return (j && typeof j.count==='number') ? j.count : null;
+    }catch(e){ return null; } finally{ clearTimeout(t); }
+  }
+  (async function(){
+    let known=null; try{ known=localStorage.getItem('moose-uid'); }catch(e){}
+    const newPerson=!known; if(newPerson){ try{ localStorage.setItem('moose-uid','1'); }catch(e){} }
+    const visits=await api(K_VIS+(newSession?'/up':''));
+    const people=await api(K_UNQ+((newPerson&&newSession)?'/up':''));
+    $('sgVisits').textContent=visits===null?'—':visits.toLocaleString('en-IN');
+    $('sgVisitors').textContent=people===null?'—':people.toLocaleString('en-IN');
+    $('sgNote').textContent=(visits===null&&people===null)
+      ? 'Global counter abhi reach nahi ho raha (internet ya service). Neeche ke stats sirf is device ke hain.'
+      : 'Visitors = alag-alag browsers. Time aur “kab visit kiya” sirf aapke is device ka hota hai.';
+  })();
+})();
+</script>
+</body>
+</html>
